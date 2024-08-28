@@ -1,0 +1,104 @@
+html,
+body {
+    height: 100%;
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: darkslategray;
+}
+
+body {
+    background-color: white;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: lightsteelblue;
+    padding-top: 1vw;
+    display: block;
+}
+
+nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    align-self: center;
+}
+
+footer {
+    background-color: lightsteelblue;
+    padding: 1vw;
+    flex-shrink: 0;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+
+h1 {
+    margin: 0.5em;
+    font-size: xx-large;
+    text-align: center;
+}
+
+h2 {
+    font-size: x-large;
+}
+
+p {
+    font-size: larger;
+    margin: 0;
+}
+
+a {
+    text-align: center;
+}
+
+a:link {
+    color: darkslategray;
+}
+
+a:visited {
+    color: darkslategray;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid darkslategray;
+}
+
+th,
+td {
+    border: 1px solid darkslategray;
+}
+
+pre {
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    align-self: center;
+}
+
+fieldset,
+input,
+textarea,
+select,
+button {
+    display: block;
+    width: 100%;
+    align-items: center;
+    padding: 0.25em;
+    margin: 0.25em;
+    box-sizing: border-box;
+}
+
+.login {
+    width: 20%;
+    margin: auto;
+    text-align: center;
+}
