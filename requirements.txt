@@ -29,8 +29,8 @@ oauthlib==3.2.2
 packaging==24.0
 pathspec==0.12.1
 platformdirs==4.2.2
-psycopg==3.1.19
-pycodestyle==2.11.1
+psycopg[c]; sys_platform == "linux"
+psycopg[binary]; sys_platform != "linux"pycodestyle==2.11.1
 pycparser==2.22
 pyflakes==3.2.0
 Pygments==2.18.0

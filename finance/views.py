@@ -24,12 +24,17 @@ from finance.serializers import (
     TransactionMapSerializer,
     TransactionSerializer
 )
+from django.http import HttpResponse
 from rest_framework import generics, permissions, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.request import Request
 from rest_framework.parsers import MultiPartParser
 from django.contrib.auth.models import User
+
+def index(request):
+
+    return HttpResponse("Hello world")
 
 class UserList(generics.ListAPIView):
     queryset = User.objects.all()
