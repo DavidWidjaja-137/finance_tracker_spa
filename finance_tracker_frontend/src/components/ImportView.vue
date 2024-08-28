@@ -1,12 +1,14 @@
 <script setup>
 
 import { ref, shallowRef, onMounted } from "vue";
-import { token } from '../state/tokenstore.js'
 import moment from 'moment';
 
 import "ag-grid-community/styles/ag-grid.css"; // Mandatory CSS required by the Data Grid
 import "ag-grid-community/styles/ag-theme-quartz.css"; // Optional Theme applied to the Data Grid
 import { AgGridVue } from "ag-grid-vue3"; // Vue Data Grid Component
+
+import { token } from '../state/tokenstore.js'
+import { baseURL } from '../state/const.js'
 
 const testString = ref("");
 const formWarning = ref('');
@@ -32,7 +34,7 @@ const accountYears = ref([]);
 const accountData = ref([]);
 
 async function GetAllAccounts() {
-    fetch('http://localhost:8000/accounts', {
+    fetch(baseURL + '/accounts', {
         method: 'GET',
         credentials: 'omit',
         headers: {
@@ -46,7 +48,7 @@ async function GetAllAccounts() {
 }
 
 async function GetTransactionFiles() {
-    fetch('http://localhost:8000/transaction_files', {
+    fetch(baseURL + 'transaction_files/', {
         method: 'GET',
         credentials: 'omit',
         headers: {
@@ -79,7 +81,7 @@ async function UploadTransactionFile(date, accountName, file) {
     form.append('account', accountName)
     form.append('file', file)
 
-    fetch('http://localhost:8000/transaction_files/', {
+    fetch(baseURL + '/transaction_files/', {
         method: 'POST',
         credentials: 'omit',
         headers: {

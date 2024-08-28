@@ -1,6 +1,7 @@
 import { reactive } from 'vue'
 
-import { token } from './tokenstore.js'
+import { token } from './tokenstore.js';
+import { baseURL } from '../state/const.js';
 
 // have an object which stores the state of the transaction category
 
@@ -13,7 +14,7 @@ export const transactionCategoryState = {
 
         if (this.categoriesLoaded === false) {
             // get the categories from web api
-            return fetch('http://localhost:8000/category', {
+            return fetch(baseURL + '/category', {
                 method: 'GET',
                 credentials: 'omit',
                 headers: {
@@ -35,7 +36,7 @@ export const transactionCategoryState = {
     updateCategories(categoryName, categoryDescription) {
 
         // post to web api for new category.
-        fetch('http://localhost:8000/category/', {
+        fetch(baseURL + '/category/', {
             method: 'POST',
             credentials: 'omit',
             headers: {
@@ -64,7 +65,7 @@ export const accountState = {
 
     async getAccounts() {
         if (this.accountsLoaded === false) {
-            return fetch('http://localhost:8000/accounts', {
+            return fetch(baseURL + '/accounts', {
                 method: 'GET',
                 credentials: 'omit',
                 headers: {
@@ -114,7 +115,7 @@ export const transactionSubCategoryState = {
 
         if (this.subCategoriesLoaded === false) {
             // get the categories from web api
-            return fetch('http://localhost:8000/subcategory/', {
+            return fetch(baseURL + '/subcategory/', {
                 method: 'GET',
                 credentials: 'omit',
                 headers: {
@@ -135,7 +136,7 @@ export const transactionSubCategoryState = {
     UpdateSubCategories(subCategoryName, subCategoryDescription, categoryID) {
 
         // post to web api for new category.
-        fetch('http://localhost:8000/subcategory/', {
+        fetch(baseURL + '/subcategory/', {
             method: 'POST',
             credentials: 'omit',
             headers: {
@@ -179,7 +180,7 @@ export const transactionMapState = {
 
         if (this.transactionMapIsLoaded === false) {
             // get the categories from web api
-            return fetch('http://localhost:8000/map/', {
+            return fetch(baseURL + '/map/', {
                 method: 'GET',
                 credentials: 'omit',
                 headers: {
@@ -201,7 +202,7 @@ export const transactionMapState = {
     UpdateTransactionMap(transactionMapID, newSubCategoryID) {
 
         // post to web api to update map
-        fetch('http://localhost:8000/filtered_map/', {
+        fetch(baseURL + '/filtered_map/', {
             method: 'POST',
             credentials: 'omit',
             headers: {
@@ -236,7 +237,7 @@ export function CreateTransactionMap(maps) {
 
 export async function GetTransactionsByTransactionMap(transactionMapID) {
 
-    var url = new URL('http://localhost:8000/filtered_transaction/');
+    var url = new URL(baseURL + '/filtered_transaction/');
 
     url.searchParams.append('transaction_map', transactionMapID);
 
@@ -253,7 +254,7 @@ export async function GetTransactionsByTransactionMap(transactionMapID) {
 
 export async function GetTransactionsByStartEndDate(start, end) {
 
-    var url = new URL('http://localhost:8000/filtered_transaction/');
+    var url = new URL(baseURL + '/filtered_transaction/');
 
     url.searchParams.append('filter_start', start);
     url.searchParams.append('filter_end', end);

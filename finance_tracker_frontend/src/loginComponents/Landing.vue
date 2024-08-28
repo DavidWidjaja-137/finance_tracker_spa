@@ -2,7 +2,8 @@
 
 import { ref } from 'vue';
 
-import { token } from '../state/tokenstore.js'
+import { token } from '../state/tokenstore.js';
+import { baseURL } from '../state/const.js'
 
 import LogoutButton from './LogoutButton.vue';
 
@@ -10,7 +11,7 @@ import LogoutButton from './LogoutButton.vue';
 const testMessage = ref('')
 
 function PullInventoryItems() {
-    fetch('http://localhost:8000/inventory_items', {
+    fetch(baseURL + '/inventory_items', {
         method: 'GET',
         credentials: 'omit',
         headers: {

@@ -1,0 +1,1 @@
+export const baseURL = "https://finance-tracker-api.david-pw.com"

@@ -4,6 +4,8 @@ import { ref } from 'vue';
 
 import { token } from '../state/tokenstore.js'
 import { userLoggedIn } from '../state/appstate.js'
+import { baseURL } from '../state/const.js'
+
 
 function Logout() {
 
@@ -12,7 +14,7 @@ function Logout() {
 
     console.log('logging out');
 
-    fetch('http://localhost:8000/dj-rest-auth/logout/', {
+    fetch(baseURL + '/dj-rest-auth/logout/', {
         method: 'POST',
         credentials: 'omit',
         headers: {

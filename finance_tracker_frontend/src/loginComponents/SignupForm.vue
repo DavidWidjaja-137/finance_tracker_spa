@@ -3,6 +3,7 @@
 import { ref } from 'vue';
 
 import { displayState } from '../state/appstate.js';
+import { baseURL } from '../state/const.js'
 
 const emit = defineEmits(['newSignInCreated']);
 
@@ -14,7 +15,7 @@ const loginMessage = ref('');
 
 
 async function AddNewUserRequest(user, pass1, pass2) {
-    const url = 'http://localhost:8000/dj-rest-auth/registration/';
+    const url = baseURL + '/dj-rest-auth/registration/';
 
     const response = await fetch(url, {
         method: 'POST',

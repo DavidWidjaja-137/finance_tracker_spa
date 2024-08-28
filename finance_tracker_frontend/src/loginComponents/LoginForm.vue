@@ -4,6 +4,7 @@ import { ref } from 'vue';
 
 import { token } from '../state/tokenstore.js'
 import { userLoggedIn } from '../state/appstate.js'
+import { baseURL } from '../state/const.js'
 
 const username = ref('');
 const password = ref('');
@@ -13,7 +14,7 @@ const loginMessage = ref('');
 /*
 function GetLoginKeyChain(user, pass) {
 
-    const url = 'http://localhost:8000/dj-rest-auth/login/';
+    const url = baseURL + '/dj-rest-auth/login/';
 
     const promise = fetch(url, {
         method: 'POST',
@@ -48,7 +49,7 @@ function GetLoginKeyChain(user, pass) {
 
 async function GetLoginKey(user, pass) {
 
-    const url = 'http://localhost:8000/dj-rest-auth/login/';
+    const url = baseURL + '/dj-rest-auth/login/';
 
     const response = await fetch(url, {
         method: 'POST',

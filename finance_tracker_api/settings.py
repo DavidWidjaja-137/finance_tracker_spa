@@ -49,7 +49,7 @@ else:
     ALLOWED_HOSTS = []
 
 # TODO: restrict
-CORS_ALLOWED_ORIGINS = ["http://localhost:5173"]
+CORS_ALLOWED_ORIGINS = ["https://finance-tracker-spa.david-pw.com"]
 
 
 # Application definition
